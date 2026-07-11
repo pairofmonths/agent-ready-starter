@@ -24,6 +24,7 @@ Banned completion shortcuts:
 - nonfunctional controls
 - unfinished routes
 - unused scaffolding
+- reporting done from lint/build output alone, without opening the running app
 
 If final content is not available, build a real empty state or omit the section.
 
@@ -78,4 +79,4 @@ Every task must include a dead-code check.
 
 ## Completion Report Requirements
 
-Every agent completion report must include changed files, what was completed, what was intentionally omitted, removed legacy/dead code, validation commands run, validation results, and remaining risks.
+Every agent completion report must include changed files, what was completed, what was intentionally omitted, removed legacy/dead code, validation commands run, validation results, how the change was verified in the running app, and remaining risks.

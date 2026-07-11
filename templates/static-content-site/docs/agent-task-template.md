@@ -13,7 +13,7 @@ Use this when asking Claude Code, Codex, or another coding agent to work on {{PR
 Read these before editing:
 
 1. `README.md`
-2. `CLAUDE.md`
+2. `AGENTS.md`
 3. `docs/prd.md`
 4. `docs/design-brief.md`
 5. `docs/working-rules.md`

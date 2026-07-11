@@ -8,11 +8,35 @@ if [ ! -e "$TARGET" ]; then
   exit 0
 fi
 
-PATTERN="TODO|FIXME|TEMP|TEMPORARY|DUMMY|MOCK|PLACEHOLDER|TBD|WIP|IMPLEMENT LATER|COMING SOON|FALLBACK|HACK"
+EXCLUDES=(
+  --exclude-dir=node_modules
+  --exclude-dir=.next
+  --exclude-dir=.git
+  --exclude-dir=dist
+  --exclude-dir=build
+  --exclude-dir=coverage
+  --exclude='*.test.*'
+  --exclude='*.spec.*'
+)
 
-if grep -RInE "$PATTERN" "$TARGET"; then
+# Classic markers: any case, word-bounded.
+LOOSE='\b(todo|fixme|tbd|wip|hack)\b'
+
+# Ambiguous words: uppercase only, so prose like "fallback behavior" passes.
+STRICT='\b(TEMP|TEMPORARY|DUMMY|MOCK|PLACEHOLDER|FALLBACK)\b|IMPLEMENT LATER|COMING SOON'
+
+found=0
+
+loose_hits=$(grep -RInEi "${EXCLUDES[@]}" "$LOOSE" "$TARGET" | grep -v 'marker-ok' || true)
+strict_hits=$(grep -RInE "${EXCLUDES[@]}" "$STRICT" "$TARGET" | grep -v 'marker-ok' || true)
+
+if [ -n "$loose_hits" ]; then printf '%s\n' "$loose_hits"; found=1; fi
+if [ -n "$strict_hits" ]; then printf '%s\n' "$strict_hits"; found=1; fi
+
+if [ "$found" -eq 1 ]; then
   echo ""
   echo "Banned fake-completion markers found in $TARGET."
+  echo "A line may opt out with a 'marker-ok' comment and a reason."
   exit 1
 fi
 

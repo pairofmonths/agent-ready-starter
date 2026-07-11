@@ -23,12 +23,22 @@ Replace template variables:
 {{EXTERNAL_EMBEDS}}
 {{RECOMMENDED_STACK}}
 {{VALIDATION_COMMANDS}}
+{{REQUIRED_FEATURES}}
+{{FUTURE_ENHANCEMENTS}}
+{{CORE_MOOD}}
+{{VISUAL_DO}}
+{{HOME_SECTIONS}}
+{{MOBILE_ORDER}}
+{{TYPOGRAPHY_DIRECTION}}
+{{COPY_TONE}}
+{{COLOR_BACKGROUND}} {{COLOR_SURFACE}} {{COLOR_TEXT}}
+{{COLOR_MUTED}} {{COLOR_LINE}} {{COLOR_ACCENT}}
 ```
 
 ## 3. Commit docs first
 
 ```bash
-git add README.md CLAUDE.md docs
+git add README.md AGENTS.md CLAUDE.md docs
 git commit -m "docs: define project direction"
 ```
 
@@ -42,7 +52,16 @@ npx create-next-app@latest . --ts --tailwind --eslint --app --src-dir
 
 If the repository is not empty, create the app in a temporary folder and copy generated files carefully.
 
-## 5. Create content files
+## 5. Check agent permissions and secrets
+
+The template ships `.claude/settings.json` pre-approving safe validation commands
+(lint, build, typecheck) so beginners are not prompted for every check. Adjust it
+to your commands; keep the allowlist narrow.
+
+Confirm `.gitignore` covers `.env*` before adding any keys. Never commit real
+credentials; anything prefixed `NEXT_PUBLIC_` ships to the browser.
+
+## 6. Create content files
 
 Create:
 
@@ -53,15 +72,16 @@ src/constants/
 src/lib/content/
 ```
 
-## 6. First build request
+## 7. First build request
 
 Give the coding agent `docs/implementation-prompt.md`.
 
-## 7. Review
+## 8. Review
 
-Use `docs/review-checklist.md`.
+Use `docs/review-checklist.md`. Open the result in the dev server yourself,
+including a mobile viewport. Do not accept "lint and build passed" as proof.
 
-## 8. Before commit or push
+## 9. Before commit or push
 
 Always run:
 
@@ -77,7 +97,7 @@ npm run typecheck
 npm run format:check
 ```
 
-## 9. Completion integrity check
+## 10. Completion integrity check
 
 Search production source for banned fake-completion markers:
 
@@ -87,7 +107,7 @@ bash scripts/check-banned-markers.sh src
 
 Rules documents may contain banned words by design. Production source should not.
 
-## 10. Optional circular dependency check
+## 11. Optional circular dependency check
 
 For later architecture checks:
 

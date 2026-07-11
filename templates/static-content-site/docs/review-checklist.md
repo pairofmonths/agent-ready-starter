@@ -91,6 +91,18 @@ Use this after an agent or design tool produces work.
 - [ ] No props copied into state without reason
 - [ ] No effect-driven derived state loop
 
+## Secrets
+
+- [ ] No `.env` or credential file committed
+- [ ] `.gitignore` covers `.env*`
+- [ ] No API keys or secrets in client code or `NEXT_PUBLIC_` variables
+
+## Runtime Verification
+
+- [ ] Changed routes opened in the running dev server
+- [ ] Interactive elements that were touched actually work
+- [ ] Mobile viewport checked
+
 ## Validation
 
 - [ ] `npm run lint` result known

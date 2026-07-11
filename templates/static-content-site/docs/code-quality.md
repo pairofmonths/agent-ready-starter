@@ -57,6 +57,8 @@ A content edit should not require touching layout components.
 
 Do not add dependencies casually. Ask before adding component libraries, CMS clients, animation libraries, state management, icon packs, audio packages, analytics, or data-fetching libraries.
 
+Agents sometimes invent package names. Before installing anything an agent suggested, confirm the package exists on the registry and looks maintained: real repository, recent publish, plausible download counts. A typo-adjacent package name is a supply-chain risk, not a convenience.
+
 ## Refactor Triggers
 
 Refactor when a value is duplicated, a page becomes hard to scan, content is hardcoded in layout, a visual pattern repeats, routes/slugs duplicate, magic numbers appear, or mobile fixes scatter.

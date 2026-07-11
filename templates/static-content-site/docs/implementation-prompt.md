@@ -9,7 +9,7 @@ Build the first production-ready version of {{PROJECT_NAME}}.
 Read and follow:
 
 - `README.md`
-- `CLAUDE.md`
+- `AGENTS.md`
 - `docs/prd.md`
 - `docs/design-brief.md`
 - `docs/content-model.md`
@@ -77,7 +77,10 @@ Avoid:
 
 ## Validation
 
-Before reporting done, run:
+Before reporting done:
+
+1. Start the dev server and open every required route. Click what you built. Check a mobile viewport.
+2. Run:
 
 ```bash
 npm run lint
@@ -86,4 +89,4 @@ npm run build
 
 If available, also run `npm run typecheck` and `npm run format:check`.
 
-Report validation results and remaining risks.
+Report what you verified in the running app, validation results, and remaining risks.

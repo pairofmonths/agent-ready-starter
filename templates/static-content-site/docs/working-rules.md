@@ -68,10 +68,10 @@ Mobile users are primary. Do not sacrifice core content readability for visual e
 
 ## Agent Workflow
 
-Before changing code, read `README.md`, `CLAUDE.md`, `docs/prd.md`, `docs/design-brief.md`, and all safety/rules docs. Identify exact task scope. Do not implement adjacent ideas.
+Before changing code, read `README.md`, `AGENTS.md`, `docs/prd.md`, `docs/design-brief.md`, and all safety/rules docs. Identify exact task scope. Do not implement adjacent ideas.
 
-Before finishing, check that no banned feature was added, content still comes from local files, mobile layout is acceptable, visual tone matches the brief, lint/build status is known, and changed files are summarized.
+Before finishing, check that no banned feature was added, content still comes from local files, changed routes were opened and checked in the running app, mobile layout is acceptable, visual tone matches the brief, lint/build status is known, and changed files are summarized.
 
 ## Definition of Done
 
-A task is done only when requested scope is complete, code remains small and readable, no banned feature was added, content source of truth is preserved, mobile layout is acceptable, build/lint status is known, and changed files are summarized.
+A task is done only when requested scope is complete, code remains small and readable, no banned feature was added, content source of truth is preserved, the change was seen working in the running app, mobile layout is acceptable, build/lint status is known, and changed files are summarized.

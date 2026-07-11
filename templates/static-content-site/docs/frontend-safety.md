@@ -62,7 +62,17 @@ Use guards:
 if (typeof window === "undefined") return;
 ```
 
+## Secrets and Environment Safety
+
+Never commit `.env`, `.env.local`, or any file containing real credentials. Confirm `.gitignore` covers `.env*` before the first commit.
+
+Never place secrets in client-reachable code. In Next.js, anything prefixed `NEXT_PUBLIC_` ships to the browser; a secret there is public. Server-only secrets belong in server-only code paths.
+
+If a key is ever committed or exposed, rotate it. Deleting the commit does not un-leak it.
+
 ## Commit and Push Verification
+
+Lint and build passing is not proof the page works. Before commit, start the dev server, open every changed route, click the interactive elements you touched, and check a mobile viewport.
 
 Before every commit or push, run:
 
